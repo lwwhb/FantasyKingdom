@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 9c066ffad1b5497468ab1a2c23f83967
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 298128
+  packageName: Fantasy Kingdom in Unity 6 | URP
+  packageVersion: 1.0
+  assetPath: Assets/Prefabs/CameraSwitch.prefab
+  uploadId: 701076

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 9a890231aefc86843904790dfb514742
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 8574412962073106934
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 298128
+  packageName: Fantasy Kingdom in Unity 6 | URP
+  packageVersion: 1.0
+  assetPath: Assets/Terrain/Materials/Blockout_Rock_A.terrainlayer
+  uploadId: 701076

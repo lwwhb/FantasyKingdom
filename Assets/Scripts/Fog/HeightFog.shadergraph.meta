@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 41a10f44035e53b4ebfaf9402ec5087b
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 625f186215c104763be7675aa2d941aa, type: 3}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 298128
+  packageName: Fantasy Kingdom in Unity 6 | URP
+  packageVersion: 1.0
+  assetPath: Assets/Scripts/Fog/HeightFog.shadergraph
+  uploadId: 701076

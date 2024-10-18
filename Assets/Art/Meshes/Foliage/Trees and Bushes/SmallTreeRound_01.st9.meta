@@ -1,0 +1,100 @@
+fileFormatVersion: 2
+guid: ac6a6f0d3d6954841a848faddb41ddd7
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine.Material
+      assembly: 
+      name: Atlas_Mat
+    second: {fileID: 2100000, guid: 24be46d3afa563f4d921828a995ce714, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SmallTreeRound_01_Billboard_Mat
+    second: {fileID: 2100000, guid: bbbd4594e583bb3458337519966b046e, type: 2}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 12405, guid: 0000000000000000e000000000000000, type: 0}
+  meshSettings:
+    unitConversion: 1
+    scaleFactor: 0.3048
+  materialSettings:
+    mainColor: {r: 1, g: 1, b: 1, a: 1}
+    hueVariation: {r: 1, g: 0.5, b: 0, a: 0.1}
+    alphaClipThreshold: 0.1
+    transmissionScale: 0
+    enableHueVariation: 0
+    enableBumpMapping: 1
+    enableSubsurfaceScattering: 1
+    diffusionProfileAssetID: {x: 0, y: 0, z: 0, w: 0}
+    diffusionProfileID: 0
+  lightingSettings:
+    enableShadowCasting: 1
+    enableShadowReceiving: 1
+    enableLightProbes: 1
+    reflectionProbeEnumValue: 1
+  additionalSettings:
+    motionVectorModeEnumValue: 1
+    generateColliders: 1
+    generateRigidbody: 1
+  lODSettings:
+    enableSmoothLODTransition: 1
+    animateCrossFading: 1
+    billboardTransitionCrossFadeWidth: 0.25
+    fadeOutWidth: 0.25
+    hasBillboard: 0
+  perLODSettings:
+  - enableSettingOverride: 0
+    height: 0.5
+    castShadows: 1
+    receiveShadows: 1
+    useLightProbes: 1
+    reflectionProbeUsage: 1
+    enableBump: 1
+    enableHue: 0
+    enableSubsurface: 1
+  - enableSettingOverride: 0
+    height: 0.25
+    castShadows: 1
+    receiveShadows: 1
+    useLightProbes: 1
+    reflectionProbeUsage: 1
+    enableBump: 1
+    enableHue: 0
+    enableSubsurface: 1
+  - enableSettingOverride: 0
+    height: 0.125
+    castShadows: 1
+    receiveShadows: 1
+    useLightProbes: 1
+    reflectionProbeUsage: 1
+    enableBump: 1
+    enableHue: 0
+    enableSubsurface: 1
+  - enableSettingOverride: 1
+    height: 0.01
+    castShadows: 1
+    receiveShadows: 1
+    useLightProbes: 0
+    reflectionProbeUsage: 0
+    enableBump: 1
+    enableHue: 0
+    enableSubsurface: 1
+  windSettings:
+    enableWind: 1
+    strenghResponse: 5
+    directionResponse: 2.5
+    randomness: 0.5
+  materialVersion: 1
+  outputImporterData: {fileID: 7965120797947565359, guid: ac6a6f0d3d6954841a848faddb41ddd7,
+    type: 3}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 298128
+  packageName: Fantasy Kingdom in Unity 6 | URP
+  packageVersion: 1.0
+  assetPath: Assets/Art/Meshes/Foliage/Trees and Bushes/SmallTreeRound_01.st9
+  uploadId: 701076

@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 7c237b0b45a7cd540813b8a7d3d0ae88
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 625f186215c104763be7675aa2d941aa, type: 3}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 298128
+  packageName: Fantasy Kingdom in Unity 6 | URP
+  packageVersion: 1.0
+  assetPath: Assets/Scripts/Fog/URP_FogShader.shadergraph
+  uploadId: 701076

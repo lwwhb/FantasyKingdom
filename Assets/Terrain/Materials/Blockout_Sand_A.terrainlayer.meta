@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2f7dd085a89ce914dac57192f23a8a71
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 8574412962073106934
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 298128
+  packageName: Fantasy Kingdom in Unity 6 | URP
+  packageVersion: 1.0
+  assetPath: Assets/Terrain/Materials/Blockout_Sand_A.terrainlayer
+  uploadId: 701076

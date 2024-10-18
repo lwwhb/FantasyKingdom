@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd2e45a1bd1263045815c3c2879a89f5, type: 3}
+  m_Name: VerifyProjectSettings
+  m_EditorClassIdentifier: 
+  defaultRPAsset: {fileID: 11400000, guid: 24e04cb166586494ba56cb3fc3ea3f41, type: 2}
+  qualityRPAssets:
+  - {fileID: 11400000, guid: 893446622527330438e1018d38685640, type: 2}
+  - {fileID: 11400000, guid: 3e2969210965c9e4f93dfe53aa60e518, type: 2}
+  - {fileID: 11400000, guid: 5259606ec6ce04c41bc18fb87f217f4b, type: 2}
+  - {fileID: 11400000, guid: 0ef3b100f2972d9478f52cab9e88ce22, type: 2}
+  - {fileID: 11400000, guid: 24e04cb166586494ba56cb3fc3ea3f41, type: 2}
+  inputActionAsset: {fileID: -944628639613478452, guid: 57aa1a4c82454616bed26f7b365eb456, type: 3}

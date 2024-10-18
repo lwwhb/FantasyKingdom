@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: dae6dc08f9253574b9a33967913702d4
+VisualEffectImporter:
+  externalObjects: {}
+  serializedVersion: 1
+  template:
+    name: 
+    category: 
+    description: 
+    icon: {instanceID: 0}
+    thumbnail: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 298128
+  packageName: Fantasy Kingdom in Unity 6 | URP
+  packageVersion: 1.0
+  assetPath: Assets/Art/FX/VFX_Files/VFX_GroupBirds.vfx
+  uploadId: 701076

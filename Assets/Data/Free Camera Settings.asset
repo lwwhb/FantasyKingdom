@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b7e014d699e2df4da80c15ba7e46087, type: 3}
+  m_Name: Free Camera Settings
+  m_EditorClassIdentifier: 
+  FreeCamHeightFog: {fileID: 2100000, guid: f3601430fa7f2454cbdab445a8e2b489, type: 2}
+  FreeCamCubeFog: {fileID: 2100000, guid: 1c975d8cef05b6b4f80f05b5bcfc4938, type: 2}
+  IsRestricted: 0
+  ZoomLevelData: []
+  CameraScreenSideSpeed: 25
+  CameraDragSpeed: 12.5
+  CameraRotateSpeed: 1.5
+  CameraZoomSpeed: 5
+  ScreenSidesZoneSize: 75
+  CameraTiltMin: 15
+  CameraTiltMax: 50
+  CameraRotateMin: 0
+  CameraRotateMax: 180
+  CameraZoomMin: 100
+  CameraZoomMax: 800
+  CameraZoomSmoothTime: 0.05
+  CameraTargetRotateSmoothTime: 20
+  NearClip: 5
+  FarClip: 1500

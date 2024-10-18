@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d3e33ebf2f09d114c9dd40673faf9fcf
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 8574412962073106934
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 298128
+  packageName: Fantasy Kingdom in Unity 6 | URP
+  packageVersion: 1.0
+  assetPath: Assets/Terrain/Materials/Blockout_Grass_A.terrainlayer
+  uploadId: 701076

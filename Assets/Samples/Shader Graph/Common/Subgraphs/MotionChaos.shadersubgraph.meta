@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 92622f1251f16ea4d913d79d407e97ad
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 60072b568d64c40a485e0fc55012dc9f, type: 3}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 298128
+  packageName: Fantasy Kingdom in Unity 6 | URP
+  packageVersion: 1.0
+  assetPath: Assets/Samples/Shader Graph/Common/Subgraphs/MotionChaos.shadersubgraph
+  uploadId: 701076

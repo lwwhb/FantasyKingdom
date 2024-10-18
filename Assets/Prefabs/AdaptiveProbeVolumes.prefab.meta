@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: d661bd221439dd64f919777dc4d04074
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 298128
+  packageName: Fantasy Kingdom in Unity 6 | URP
+  packageVersion: 1.0
+  assetPath: Assets/Prefabs/AdaptiveProbeVolumes.prefab
+  uploadId: 701076

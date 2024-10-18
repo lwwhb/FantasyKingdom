@@ -1,0 +1,126 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1233149941 &-9120177825514500416
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: bird_small_3_{-9120177825514500416}
+  m_AudioClip: {fileID: 8300000, guid: 0a2f68619df5da64da89a5f5c5689e4e, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &-6642895599965475723
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: bird_small_1_{-6642895599965475723}
+  m_AudioClip: {fileID: 8300000, guid: 2c9dd92dc5a8f6647ae2702728034460, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &-5947920789488845698
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: bird_small_2_{-5947920789488845698}
+  m_AudioClip: {fileID: 8300000, guid: 1feae3cbc97702c44ba235f19af3da1a, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &546561387784668669
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: bird_small_6_{546561387784668669}
+  m_AudioClip: {fileID: 8300000, guid: f93ace8ad3aa8594eaaa1f9e3fe10f7f, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &1610788493413876936
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: bird_small_4_{1610788493413876936}
+  m_AudioClip: {fileID: 8300000, guid: fdd1140afbf4f194f93005c16069aede, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &2031071510878643567
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: bird_small_9_{2031071510878643567}
+  m_AudioClip: {fileID: 8300000, guid: 86e351303ca91d74fa077a19039cae40, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &2316124459133146552
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: bird_small_8_{2316124459133146552}
+  m_AudioClip: {fileID: 8300000, guid: 845adfc37a6e8fa498ba587cb483d96c, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &4051475472751180292
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: bird_small_7_{4051475472751180292}
+  m_AudioClip: {fileID: 8300000, guid: dd1e60224b7a5ad4caaef4e3851ebe61, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &5154971484670277569
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: bird_small_5_{5154971484670277569}
+  m_AudioClip: {fileID: 8300000, guid: 14bf1c2db747009439b4e6cc4e710417, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1307931743 &6418180475301049370
+AudioRandomContainer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: birds01
+  m_Volume: -15
+  m_Pitch: 0
+  m_AutomaticTriggerTime: 6.1
+  m_LoopCount: 1
+  m_VolumeRandomizationRange: {x: 0, y: 0}
+  m_PitchRandomizationRange: {x: 0, y: 0}
+  m_AutomaticTriggerTimeRandomizationRange: {x: -5.4333467, y: 8.739129}
+  m_LoopCountRandomizationRange: {x: 0, y: 0}
+  m_Elements:
+  - {fileID: -6642895599965475723}
+  - {fileID: -5947920789488845698}
+  - {fileID: -9120177825514500416}
+  - {fileID: 1610788493413876936}
+  - {fileID: 5154971484670277569}
+  - {fileID: 546561387784668669}
+  - {fileID: 4051475472751180292}
+  - {fileID: 2316124459133146552}
+  - {fileID: 2031071510878643567}
+  m_AvoidRepeatingLast: 2
+  m_PlaybackMode: 2
+  m_TriggerMode: 1
+  m_AutomaticTriggerMode: 1
+  m_LoopMode: 0
+  m_VolumeRandomizationEnabled: 1
+  m_PitchRandomizationEnabled: 1
+  m_AutomaticTriggerTimeRandomizationEnabled: 1
+  m_LoopCountRandomizationEnabled: 0

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 9b6050588cb252d4bbf499ad11e2a881
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 298128
+  packageName: Fantasy Kingdom in Unity 6 | URP
+  packageVersion: 1.0
+  assetPath: Assets/Samples/Shader Graph/17.0.3/Production Ready Shaders/Environment/Water/WaterLake.mat
+  uploadId: 701076

@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b7e014d699e2df4da80c15ba7e46087, type: 3}
+  m_Name: Gameplay Camera Settings
+  m_EditorClassIdentifier: 
+  FreeCamHeightFog: {fileID: 0}
+  FreeCamCubeFog: {fileID: 0}
+  IsRestricted: 1
+  ZoomLevelData:
+  - MaxShadowDistance: 500
+    ZoomAmount: 200
+    TiltAmount: 20
+    CameraNearPlane: 5
+    CameraFarPlane: 500
+    Split1: 0.7
+    Split2: 0.8
+    Split3: 0.98
+    CascadeBorder: 0.2
+    HeightFog: {fileID: 2100000, guid: 8e4f5f0f48140ba4e89d1f1568a4127e, type: 2}
+    CubeFog: {fileID: 2100000, guid: d30e9e118c536a94db153af4c4024f25, type: 2}
+  - MaxShadowDistance: 1000
+    ZoomAmount: 400
+    TiltAmount: 30
+    CameraNearPlane: 200
+    CameraFarPlane: 1000
+    Split1: 0.7
+    Split2: 0.8
+    Split3: 0.9
+    CascadeBorder: 0.2
+    HeightFog: {fileID: 2100000, guid: a59188dac4e1554459aa3072ddc70337, type: 2}
+    CubeFog: {fileID: 2100000, guid: 068797dc5bb90214e95242e212c2951b, type: 2}
+  - MaxShadowDistance: 2500
+    ZoomAmount: 800
+    TiltAmount: 35
+    CameraNearPlane: 500
+    CameraFarPlane: 1500
+    Split1: 0.9
+    Split2: 0.93
+    Split3: 0.95
+    CascadeBorder: 0
+    HeightFog: {fileID: 2100000, guid: 30dae1d889096c144a363dfae13e7538, type: 2}
+    CubeFog: {fileID: 2100000, guid: 54e4b9bb4b6a0eb4eb7f078dea7364c3, type: 2}
+  CameraScreenSideSpeed: 50
+  CameraDragSpeed: 12.5
+  CameraRotateSpeed: 1.5
+  CameraZoomSpeed: 400
+  ScreenSidesZoneSize: 75
+  CameraTiltMin: 45
+  CameraTiltMax: 75
+  CameraRotateMin: 180
+  CameraRotateMax: 359
+  CameraZoomMin: 5
+  CameraZoomMax: 200
+  CameraZoomSmoothTime: 0.2
+  CameraTargetRotateSmoothTime: 20
+  NearClip: 0
+  FarClip: 0

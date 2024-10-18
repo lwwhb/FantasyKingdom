@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 015627a06347c24449145bbd24973ce4
+VisualEffectImporter:
+  externalObjects: {}
+  serializedVersion: 1
+  template:
+    name: 
+    category: 
+    description: 
+    icon: {instanceID: 0}
+    thumbnail: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 298128
+  packageName: Fantasy Kingdom in Unity 6 | URP
+  packageVersion: 1.0
+  assetPath: Assets/Art/FX/VFX_Files/VFX_Waterwheel.vfx
+  uploadId: 701076

@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1233149941 &-6025512982170271533
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: work2_{-6025512982170271533}
+  m_AudioClip: {fileID: 8300000, guid: 55671f7e785597444be2e9b0658d06a2, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &76361972983919629
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: work1_{76361972983919629}
+  m_AudioClip: {fileID: 8300000, guid: 3f1cfea73c6489f4990160ae4c2818b4, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &4219426073481405734
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: water_pump_{4219426073481405734}
+  m_AudioClip: {fileID: 8300000, guid: 4b94b75106365804c8851835f268010d, type: 3}
+  m_Volume: -6
+  m_Enabled: 1
+--- !u!1307931743 &6418180475301049370
+AudioRandomContainer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: work
+  m_Volume: 0
+  m_Pitch: 0
+  m_AutomaticTriggerTime: 1.2
+  m_LoopCount: 1
+  m_VolumeRandomizationRange: {x: 0, y: 0}
+  m_PitchRandomizationRange: {x: 0, y: 0}
+  m_AutomaticTriggerTimeRandomizationRange: {x: -1.4663994, y: 1.466403}
+  m_LoopCountRandomizationRange: {x: 0, y: 0}
+  m_Elements:
+  - {fileID: 76361972983919629}
+  - {fileID: -6025512982170271533}
+  - {fileID: 4219426073481405734}
+  m_AvoidRepeatingLast: 0
+  m_PlaybackMode: 2
+  m_TriggerMode: 1
+  m_AutomaticTriggerMode: 1
+  m_LoopMode: 0
+  m_VolumeRandomizationEnabled: 1
+  m_PitchRandomizationEnabled: 1
+  m_AutomaticTriggerTimeRandomizationEnabled: 1
+  m_LoopCountRandomizationEnabled: 0

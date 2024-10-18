@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 9d9536dd515a46f45a9ee27a7403f21f
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 24100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 298128
+  packageName: Fantasy Kingdom in Unity 6 | URP
+  packageVersion: 1.0
+  assetPath: Assets/Audio/MainAudioMixer.mixer
+  uploadId: 701076

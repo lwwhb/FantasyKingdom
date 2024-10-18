@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 46dbdab0d393e9447bd0975150300e73
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 298128
+  packageName: Fantasy Kingdom in Unity 6 | URP
+  packageVersion: 1.0
+  assetPath: Assets/Prefabs/StatsCanvas.prefab
+  uploadId: 701076

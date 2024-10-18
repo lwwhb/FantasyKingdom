@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 4a909db2c24cec9488d67eab676c707a
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 298128
+  packageName: Fantasy Kingdom in Unity 6 | URP
+  packageVersion: 1.0
+  assetPath: Assets/URP/VolumeProfiles/Global Volume Profile Desktop.asset
+  uploadId: 701076

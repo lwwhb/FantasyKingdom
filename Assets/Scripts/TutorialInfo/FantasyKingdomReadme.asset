@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21dc1b78441cb4e4488ce9dbe06ce21e, type: 3}
+  m_Name: FantasyKingdomReadme
+  m_EditorClassIdentifier: 
+  icon: {fileID: 2800000, guid: c3a10cdd65cbd7c4f9d7d2879e479eeb, type: 3}
+  title: Welcome to the Fantasy Kingdom in Unity 6 URP demo
+  sections:
+  - heading: 
+    text: 'This project was created using Synty Studios'' asset package:'
+    linkText: POLYGON Fantasy Kingdom
+    url: https://assetstore.unity.com/packages/3d/environments/fantasy/polygon-fantasy-kingdom-low-poly-3d-art-by-synty-164532?srsltid=AfmBOopIFkECbBmwuwCxbpKDUFMgkgEdPhJv6nTpdakzXXPlXDGqwv1R
+  - heading: 
+    text: 'Please note that this demo project is intended for educational purposes
+      only. For commercial licensing and to experience the modular flexibility of
+      the original Fantasy Kingdom asset pack, please head over to:'
+    linkText: Synty Asset Store
+    url: https://assetstore.unity.com/packages/3d/environments/fantasy/polygon-fantasy-kingdom-low-poly-3d-art-by-synty-164532?srsltid=AfmBOopcu-pJMdRuq16nTLvftBgv-ShfaojL5YF1zaKjsgz25uOyaqj3
+  - heading: 
+    text: 'Learn more about this demo at:'
+    linkText: unity.com/demos/fantasy-kingdom
+    url: https://unity.com/demos/fantasy-kingdom
+  loadedLayout: 1

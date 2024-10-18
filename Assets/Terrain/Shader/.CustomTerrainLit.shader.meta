@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 06ab435917682fc42bc52055b2d77489
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 298128
+  packageName: Fantasy Kingdom in Unity 6 | URP
+  packageVersion: 1.0
+  assetPath: Assets/Terrain/Shader/.CustomTerrainLit.shader
+  uploadId: 701076

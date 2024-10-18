@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2de7d24ec7e0fd5498e20b725eddf5e8
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 15600000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 298128
+  packageName: Fantasy Kingdom in Unity 6 | URP
+  packageVersion: 1.0
+  assetPath: Assets/Terrain/TerrainData.asset
+  uploadId: 701076

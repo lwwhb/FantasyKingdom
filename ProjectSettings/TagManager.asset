@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 3
+  tags:
+  - CinemachineTarget
+  - Targets
+  - Camera
+  - CameraLevel0
+  - CameraLevel1
+  - CameraLevel2
+  - Volumes
+  - FreeCamVolume
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - NPC
+  - Ground
+  - 
+  - 
+  - RaycastOnly
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - Size0
+  - Size1
+  - Size2
+  - Size3
+  - Size4
+  - Size5
+  - SmallVFX
+  - MedVFX
+  - LargeVFX
+  - 
+  - 
+  - Temp
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  m_RenderingLayers:
+  - Default
+  - NoDecal
+  - Layer 2
+  - Layer 3
+  - Layer 4
+  - Layer 5
+  - Layer 6
+  - Layer 7
+  - Layer 8

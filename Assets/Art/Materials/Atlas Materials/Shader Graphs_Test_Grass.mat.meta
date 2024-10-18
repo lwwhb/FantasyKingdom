@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 1ecdd71ebac8cbb408cd23e8d6156b8a
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 298128
+  packageName: Fantasy Kingdom in Unity 6 | URP
+  packageVersion: 1.0
+  assetPath: Assets/Art/Materials/Atlas Materials/Shader Graphs_Test_Grass.mat
+  uploadId: 701076

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 16486e8edc9be2640b37eda26e01a2d2
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 298128
+  packageName: Fantasy Kingdom in Unity 6 | URP
+  packageVersion: 1.0
+  assetPath: Assets/Samples/Shader Graph/17.0.3/Production Ready Shaders/Environment/Water/Pond.mat
+  uploadId: 701076

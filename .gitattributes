@@ -1,0 +1,6 @@
+Assets/Art/Textures/Atlases/Atlas_01_Base_Color.tga filter=lfs diff=lfs merge=lfs -text
+Assets/Art/Textures/Atlases/Atlas_01_MASK.tga filter=lfs diff=lfs merge=lfs -text
+Assets/Art/Textures/Atlases/Atlas_02_MASK.tga filter=lfs diff=lfs merge=lfs -text
+Assets/Art/URPHDRI/FantasyKingdomSkyBoxSkyWater.exr filter=lfs diff=lfs merge=lfs -text
+Assets/Terrain/Textures/Cliff_Mossy_F/Cliff_Mossy_F_MaskMap.tif filter=lfs diff=lfs merge=lfs -text
+Assets/Terrain/Textures/Sand_A/Sand_A_Normal.tif filter=lfs diff=lfs merge=lfs -text

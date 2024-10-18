@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: d385de3074c76b7439816452e415a8bf
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 298128
+  packageName: Fantasy Kingdom in Unity 6 | URP
+  packageVersion: 1.0
+  assetPath: Assets/Scenes/Demo/Demo Baking Set.CellSupportData.bytes
+  uploadId: 701076

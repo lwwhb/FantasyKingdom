@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1233149941 &-4898027824727259047
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: wasser4_{-4898027824727259047}
+  m_AudioClip: {fileID: 8300000, guid: 5b9b00e1cf0cae34c9b65054fafbeadb, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &-1878217826396857359
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: wasser5_{-1878217826396857359}
+  m_AudioClip: {fileID: 8300000, guid: cdcf432853a59a347b07a466329858f5, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &1976663026083108949
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: wasser1_{1976663026083108949}
+  m_AudioClip: {fileID: 8300000, guid: 3f0620b3bf681bf4a85ec8d4d85dcea0, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1233149941 &5819308405697359208
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: wasser2_{5819308405697359208}
+  m_AudioClip: {fileID: 8300000, guid: 13c742e2accbd1d42bcafc3f9938ebd8, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
+--- !u!1307931743 &6418180475301049370
+AudioRandomContainer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: wasser
+  m_Volume: 0
+  m_Pitch: 0
+  m_AutomaticTriggerTime: 0
+  m_LoopCount: 1
+  m_VolumeRandomizationRange: {x: 0, y: 0}
+  m_PitchRandomizationRange: {x: 0, y: 0}
+  m_AutomaticTriggerTimeRandomizationRange: {x: -1.4663994, y: 1.466403}
+  m_LoopCountRandomizationRange: {x: 0, y: 0}
+  m_Elements:
+  - {fileID: 1976663026083108949}
+  - {fileID: 5819308405697359208}
+  - {fileID: 6828297982633553955}
+  - {fileID: -4898027824727259047}
+  - {fileID: -1878217826396857359}
+  m_AvoidRepeatingLast: 0
+  m_PlaybackMode: 2
+  m_TriggerMode: 1
+  m_AutomaticTriggerMode: 1
+  m_LoopMode: 0
+  m_VolumeRandomizationEnabled: 1
+  m_PitchRandomizationEnabled: 1
+  m_AutomaticTriggerTimeRandomizationEnabled: 0
+  m_LoopCountRandomizationEnabled: 0
+--- !u!1233149941 &6828297982633553955
+AudioContainerElement:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: wasser3_{6828297982633553955}
+  m_AudioClip: {fileID: 8300000, guid: 439ab71cbb71f774f8f04164be39392f, type: 3}
+  m_Volume: 0
+  m_Enabled: 1
