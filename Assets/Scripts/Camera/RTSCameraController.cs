@@ -12,6 +12,7 @@ namespace Unity.FantasyKingdom
 
         public event EventHandler<OnZoomHandledEventArgs> OnZoomHandled;
         public event EventHandler<OnZoomDoneEventArgs> OnZoomDone;
+        public EventHandler<OnZoomMidPointEventArgs> OnZoomMidPoint;
         public class OnZoomHandledEventArgs : EventArgs
         {
             public float zoomDelta;
@@ -27,6 +28,11 @@ namespace Unity.FantasyKingdom
             public int zoomLevel;
             public float shadowDist;
             public ZoomLevelData data;
+        }
+
+        public class OnZoomMidPointEventArgs: EventArgs
+        {
+            public int zoomLevel;
         }
 
         public event EventHandler OnRotateStarted;
@@ -46,12 +52,17 @@ namespace Unity.FantasyKingdom
             public int settings_index;
             public int zoomLevel;
             public float nearClip, farClip;
+            public float shadowDistance;
             public Material prevHeightFog, heightFog;
             public Material prevCubeFog, CubeFog;
         }
 
 
         #endregion
+
+        
+        [Range(0,1)]
+        private float forceLodPoint = 0.4f;
 
 
         [Header("Refs")]
@@ -109,9 +120,10 @@ namespace Unity.FantasyKingdom
         private float prevZoomInput;
         private float _startingZoomLevel;
         private bool _cameraState = false;
+        private bool midPointFired;
         private ZoomLevelData _zoomLevelData;
         private ZoomLevelData _prevZoomLevelData;
-        private enum CameraType
+        public enum CameraType
         {
             GameplayCamera = 0,
             FreeCamera = 1
@@ -134,6 +146,21 @@ namespace Unity.FantasyKingdom
             _targetCameraTilt = _virtualCameraGameObject.transform.localRotation.eulerAngles.x;
             _currentCameraTilt = _targetCameraTilt;
             _inputProvider = GetComponent<IInputProvider>();
+            var settingsZoomLevelData = Settings[(int)CameraType.GameplayCamera].ZoomLevelData[_zoomLevelIndex];
+            var settingsFreeCamera = Settings[(int)CameraType.FreeCamera];
+            OnCameraSettingsChanged?.Invoke(this, new OnCameraSettingsChangedEventArgs
+            {
+                settings_index = (int)CameraType.GameplayCamera,
+                zoomLevel = _zoomLevelIndex,
+                prevCubeFog = settingsFreeCamera.FreeCamCubeFog,
+                prevHeightFog = settingsFreeCamera.FreeCamHeightFog,
+                heightFog = settingsZoomLevelData.HeightFog,
+                CubeFog = settingsZoomLevelData.CubeFog,
+                nearClip = Settings[(int)CameraType.GameplayCamera].ZoomLevelData[_zoomLevelIndex].CameraNearPlane,
+                farClip = Settings[(int)CameraType.GameplayCamera].ZoomLevelData[_zoomLevelIndex].CameraFarPlane,
+                shadowDistance = settingsZoomLevelData.MaxShadowDistance
+            });
+
             Debug.Assert(_inputProvider != null, "No Input Provider found! Please ensure there's one attached to this gameObject", gameObject);
         }
 
@@ -165,14 +192,14 @@ namespace Unity.FantasyKingdom
 
         public void SwitchCurrentSettings()
         {
-            _cameraState = !_cameraState; 
+            _cameraState = !_cameraState;
+            _zoomDone = false;
             CameraType nextSettingsIndex = _cameraState ? CameraType.FreeCamera : CameraType.GameplayCamera;
             var settingsZoomLevelData = Settings[(int)CameraType.GameplayCamera].ZoomLevelData[_zoomLevelIndex];
             var settingsFreeCamera = Settings[(int)CameraType.FreeCamera];
 
             if (_currentCameraType == CameraType.GameplayCamera)
             {
-                // TODO equalize naming convention in OnCameraSettingsChangedEventArgs
                 OnCameraSettingsChanged?.Invoke(this, new OnCameraSettingsChangedEventArgs
                 {
                     settings_index = (int)nextSettingsIndex,
@@ -183,6 +210,7 @@ namespace Unity.FantasyKingdom
                     CubeFog = settingsFreeCamera.FreeCamCubeFog,
                     nearClip = settingsFreeCamera.NearClip,
                     farClip = settingsFreeCamera.FarClip
+                    
                 });
             }
             else
@@ -196,8 +224,11 @@ namespace Unity.FantasyKingdom
                     heightFog = settingsZoomLevelData.HeightFog,
                     CubeFog = settingsZoomLevelData.CubeFog,
                     nearClip = Settings[(int)CameraType.GameplayCamera].ZoomLevelData[_zoomLevelIndex].CameraNearPlane,
-                    farClip = Settings[(int)CameraType.GameplayCamera].ZoomLevelData[_zoomLevelIndex].CameraFarPlane
+                    farClip = Settings[(int)CameraType.GameplayCamera].ZoomLevelData[_zoomLevelIndex].CameraFarPlane,
+                    shadowDistance = settingsZoomLevelData.MaxShadowDistance
                 });
+                _currentCameraZoom = settingsZoomLevelData.ZoomAmount;
+                _targetCameraTilt = settingsZoomLevelData.TiltAmount;
             }
             currentSettings = Settings[(int)nextSettingsIndex];
             _currentCameraType = nextSettingsIndex;
@@ -319,6 +350,7 @@ namespace Unity.FantasyKingdom
                    
                     _currentCameraZoom = currentSettings.ZoomLevelData[_zoomLevelIndex].ZoomAmount;
                     _targetCameraTilt = currentSettings.ZoomLevelData[_zoomLevelIndex].TiltAmount;
+                    midPointFired = false;
                 }
                 _zoomLevelData = currentSettings.ZoomLevelData[_zoomLevelIndex];
                 _prevZoomLevelData = currentSettings.ZoomLevelData[_prevZoomIndex];
@@ -344,8 +376,18 @@ namespace Unity.FantasyKingdom
                 t += Time.deltaTime;
                 float zoomDelta = Remap(cameraDistance, _startingZoomLevel, _currentCameraZoom, 0, 1);
 
+               
+
                 if (currentSettings.IsRestricted)
                 {
+                    if (zoomDelta > forceLodPoint && !midPointFired)
+                    {
+                        midPointFired = true;
+                        OnZoomMidPoint?.Invoke(this, new OnZoomMidPointEventArgs
+                        {
+                            zoomLevel = _zoomLevelIndex
+                        });
+                    }
                     OnZoomHandled?.Invoke(this, new OnZoomHandledEventArgs
                     {
                         zoomDelta = zoomDelta,
@@ -422,7 +464,7 @@ namespace Unity.FantasyKingdom
             camRight.y = 0f;
             camForward.Normalize();
             camRight.Normalize();
-            Vector3 relativeDir = (camForward * direction.z * 2) + (camRight * direction.x);
+            Vector3 relativeDir = (2 * direction.z * camForward) + (camRight * direction.x);
 
             CameraTarget.Translate(relativeDir * (relativeZoomCameraMoveSpeed * speed * Time.deltaTime));
         }

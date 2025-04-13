@@ -51,6 +51,15 @@ namespace Unity.FantasyKingdom
             return _switchSettingsAction?.WasPressedThisFrame() ?? default;
         }
 
+        public bool CycleQualityUpButton()
+        {
+            return _cycleQualityUpAction?.WasPressedThisFrame() ?? default;
+        }
+        public bool CycleQualityDownButton()
+        {
+            return _cycleQualityDownAction?.WasPressedThisFrame() ?? default;
+        }
+
         public bool StatPanelGesture { get; private set; }
 
         public bool StatPanelButton { get; private set; }
@@ -61,6 +70,8 @@ namespace Unity.FantasyKingdom
 
         public Vector2 DragDelta { get => _dragDelta; }
 
+        [SerializeField] InputActionAsset _inputActionAsset;
+        
         private Vector2 _mousePosition;
         private float _zoomInput;
         private Vector2 _mouseInput;
@@ -90,24 +101,34 @@ namespace Unity.FantasyKingdom
         InputAction _lookAction;
         InputAction _toggleStatsAction;
         InputAction _switchSettingsAction;
-        
+        InputAction _cycleQualityUpAction;
+        InputAction _cycleQualityDownAction;
         void OnEnable()
         {
             EnhancedTouchSupport.Enable();
+            _inputActionAsset.Enable();
 
             if(rotationMouseButton == MouseButton.Left) _rotationMouseButtonControl = Mouse.current?.leftButton;
             else if(rotationMouseButton == MouseButton.Middle) _rotationMouseButtonControl = Mouse.current?.middleButton;
             else if(rotationMouseButton == MouseButton.Right) _rotationMouseButtonControl = Mouse.current?.rightButton;
             
-            _moveAction = InputSystem.actions.FindAction("Move");
-            _lookAction = InputSystem.actions.FindAction("Look");
-            _toggleStatsAction = InputSystem.actions.FindAction("ToggleStats");
-            _switchSettingsAction = InputSystem.actions.FindAction("SwitchSettings");
-
+            _moveAction = _inputActionAsset.FindAction("Move");
+            _lookAction = _inputActionAsset.FindAction("Look");
+            _toggleStatsAction = _inputActionAsset.FindAction("ToggleStats");
+            _switchSettingsAction = _inputActionAsset.FindAction("SwitchSettings");
+            _cycleQualityUpAction = _inputActionAsset.FindAction("CycleQualityUp");
+            _cycleQualityDownAction = _inputActionAsset.FindAction("CycleQualityDown");
             Debug.Assert(_moveAction != null);
             Debug.Assert(_lookAction != null);
             Debug.Assert(_toggleStatsAction != null);
             Debug.Assert(_switchSettingsAction != null);
+            Debug.Assert(_cycleQualityUpAction != null);
+            Debug.Assert(_cycleQualityDownAction != null);
+            if (QualitySettings.count < 2)
+            {
+                _cycleQualityUpAction.Disable();
+                _cycleQualityDownAction.Disable();
+            }
         }
         
         void Update()
@@ -117,7 +138,7 @@ namespace Unity.FantasyKingdom
                 var touchScreen = Touchscreen.current;
                 if (touchScreen != null)
                 {
-                    var touches = UnityEngine.InputSystem.EnhancedTouch.Touch.activeTouches;
+                    var touches = Touch.activeTouches;
                     UpdateInput(touches);
                 }
                 else

@@ -5,6 +5,8 @@ using UnityEditor;
 using System;
 using System.IO;
 using System.Reflection;
+using UnityEditor.Compilation;
+
 namespace Unity.FantasyKingdom
 {
 	[CustomEditor(typeof(FKReadme))]
@@ -13,6 +15,7 @@ namespace Unity.FantasyKingdom
 	{
 
 		static string kShowedReadmeSessionStateName = "FKReadmeEditor.showedReadme";
+		static string kRefreshedOncePath = Application.dataPath + "/../Library/fk_has_recompiled_once.txt";
 
 		static float kSpace = 16f;
 
@@ -23,6 +26,16 @@ namespace Unity.FantasyKingdom
 
 		static void SelectReadmeAutomatically()
 		{
+			if (!File.Exists(kRefreshedOncePath))
+			{
+				using (var sw = File.CreateText(kRefreshedOncePath))
+				{
+					sw.Write(DateTime.Now.ToString());
+				}
+				
+				CompilationPipeline.RequestScriptCompilation();
+			}
+			
 			if (!SessionState.GetBool(kShowedReadmeSessionStateName, false))
 			{
 				var readme = SelectReadme();

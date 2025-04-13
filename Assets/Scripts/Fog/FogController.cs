@@ -7,12 +7,14 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using static Unity.FantasyKingdom.RTSCameraController;
+using CameraType = Unity.FantasyKingdom.RTSCameraController.CameraType;
 
 namespace Unity.FantasyKingdom
 {
 
     public class FogController : MonoBehaviour
     {
+        public QualitySettingsController qualityController;
         public GameObject VolumeHolder;
         public CinemachineCamera VirtualCamera;
         private Volume freeCamVolume;
@@ -21,6 +23,7 @@ namespace Unity.FantasyKingdom
 
         private Volume[] volumes;
         private int currentZoomLevel = 0;
+        private int currentSettings;
 
         public float LerpTime = 1;
 
@@ -33,19 +36,26 @@ namespace Unity.FantasyKingdom
 
         Coroutine lerpRoutine;
         UniversalRenderPipelineAsset urp;
+        int originalCascadeCount;
         float originalMaxShadowDist, originalLastBorder, originalCascade2Split;
         Vector2 originalcascade3Split;
         Vector3 originalcascade4Split;
 
-        void Awake()
+        Dictionary<int, Tuple<int, float>> lodSettingsDict;
+
+        void OnEnable()
         {
-           
             urp = (UniversalRenderPipelineAsset)GraphicsSettings.currentRenderPipeline;
+            lodSettingsDict = new();
+            lodSettingsDict.Add(QualitySettings.GetQualityLevel(), new Tuple<int, float>(QualitySettings.maximumLODLevel, QualitySettings.lodBias));
+            QualitySettings.activeQualityLevelChanged += OnQualitySettingsChanged;
             originalMaxShadowDist = urp.shadowDistance;
             originalLastBorder = urp.cascadeBorder;
             originalCascade2Split = urp.cascade2Split;
             originalcascade3Split = urp.cascade3Split;
             originalcascade4Split = urp.cascade4Split;
+            originalCascadeCount = urp.shadowCascadeCount;
+       
             volumes = VolumeHolder.GetComponentsInChildren<Volume>();
             
             currentZoomLevel = 0;
@@ -64,7 +74,26 @@ namespace Unity.FantasyKingdom
 
             camController.OnZoomHandled += HandleZoomLerp;
             camController.OnZoomDone += ZoomDone;
+            camController.OnZoomMidPoint += ForceLodsOnZoomMidPoint;
             camController.OnCameraSettingsChanged += StartLerpFog;
+        }
+
+        private void ForceLodsOnZoomMidPoint(object sender,OnZoomMidPointEventArgs args)
+        {
+            if (ShouldChangeLODSettings())
+            {
+                QualitySettings.maximumLODLevel = args.zoomLevel;
+            }
+        }
+        private void OnQualitySettingsChanged(int prev, int curr)
+        {
+            if (!lodSettingsDict.ContainsKey(curr))
+                    lodSettingsDict.Add(curr, new Tuple<int, float>(QualitySettings.maximumLODLevel, QualitySettings.lodBias));
+            if (currentSettings == (int)CameraType.GameplayCamera && ShouldChangeLODSettings())
+            { 
+                QualitySettings.lodBias = 50000;
+                QualitySettings.maximumLODLevel = currentZoomLevel;
+            }        
         }
         private void HandleZoomLerp(object sender,OnZoomHandledEventArgs args)
         {
@@ -81,27 +110,6 @@ namespace Unity.FantasyKingdom
             else if (targetZoomLevel < currentZoomLevel)
                 volumes[currentZoomLevel].weight = Mathf.Lerp(1, 0, t);
             urp.shadowDistance = Mathf.Lerp(args.prevShadowDist, args.shadowDist, t);
-            switch (urp.shadowCascadeCount)
-            {
-                case 2:
-                    urp.cascade2Split = Mathf.Lerp(args.prevData.Split1, args.data.Split1, t);
-                    break;
-                case 3:
-                    Vector2 split3;
-                    split3.x = Mathf.Lerp(args.prevData.Split1, args.data.Split1, t);
-                    split3.y = Mathf.Lerp(args.prevData.Split2, args.data.Split2, t);
-                    urp.cascade3Split = split3;
-                    break;
-                case 4:
-                    Vector3 split4;
-                    split4.x = Mathf.Lerp(args.prevData.Split1, args.data.Split1, t);
-                    split4.y = Mathf.Lerp(args.prevData.Split2, args.data.Split2, t);
-                    split4.z = Mathf.Lerp(args.prevData.Split3, args.data.Split3, t);
-                    urp.cascade4Split = split4;
-                    break;
-            }
-            urp.cascadeBorder = Mathf.Lerp(args.prevData.CascadeBorder, args.data.CascadeBorder, t);
-
             VirtualCamera.Lens.NearClipPlane = Mathf.Lerp(args.prevData.CameraNearPlane, args.data.CameraNearPlane, t);
             VirtualCamera.Lens.FarClipPlane = Mathf.Lerp(args.prevData.CameraFarPlane, args.data.CameraFarPlane, t);
         }
@@ -112,29 +120,8 @@ namespace Unity.FantasyKingdom
                 volumes[targetZoomLevel].weight = 1;
             else if (targetZoomLevel < currentZoomLevel)
                 volumes[currentZoomLevel].weight = 0;
-
             currentZoomLevel = args.zoomLevel;
             urp.shadowDistance = args.shadowDist;
-            switch (urp.shadowCascadeCount)
-            {
-                case 2:
-                    urp.cascade2Split = args.data.Split1;
-                    break;
-                case 3:
-                    Vector2 split3;
-                    split3.x = args.data.Split1;
-                    split3.y = args.data.Split2;
-                    urp.cascade3Split = split3;
-                    break;
-                case 4:
-                    Vector3 split4;
-                    split4.x = args.data.Split1;
-                    split4.y = args.data.Split2;
-                    split4.z = args.data.Split3;
-                    urp.cascade4Split = split4;
-                    break;
-            }
-            urp.cascadeBorder = args.data.CascadeBorder;
             VirtualCamera.Lens.NearClipPlane = args.data.CameraNearPlane;
             VirtualCamera.Lens.FarClipPlane = args.data.CameraFarPlane;
         }
@@ -143,26 +130,46 @@ namespace Unity.FantasyKingdom
         {
             if(lerpRoutine != null)
             {
-                StopCoroutine(LerpFogMaterialsForFreeCam(args.prevHeightFog, args.prevCubeFog, args.heightFog, args.CubeFog, 
-                    args.settings_index, args.zoomLevel, args.nearClip,args.farClip));
+                StopCoroutine(LerpFogMaterialsForFreeCam(args.prevHeightFog, args.prevCubeFog, args.heightFog, args.CubeFog,
+                    args.settings_index, args.nearClip, args.farClip, args.shadowDistance, args.zoomLevel));
                 lerpRoutine = null;
             }
            
-            lerpRoutine = StartCoroutine(LerpFogMaterialsForFreeCam(args.prevHeightFog, args.prevCubeFog, 
-                args.heightFog,args.CubeFog,args.settings_index,args.zoomLevel, args.nearClip,args.farClip));
+            lerpRoutine = StartCoroutine(LerpFogMaterialsForFreeCam(args.prevHeightFog, args.prevCubeFog,
+                args.heightFog, args.CubeFog, args.settings_index, args.nearClip, args.farClip, args.shadowDistance, args.zoomLevel));
         }
 
 
-        IEnumerator LerpFogMaterialsForFreeCam(Material fromHeight, Material fromCube, Material toHeight, 
-            Material toCube, int settingsIndex, int zoomLevel, float near, float far)
+        IEnumerator LerpFogMaterialsForFreeCam(Material fromHeight, Material fromCube, Material toHeight,
+            Material toCube, int settingsIndex, float near, float far, float shadowDist, int zoomLevel)
         {
+            currentSettings = settingsIndex;
             time = 0;
-            urp.shadowDistance = 1000;
-            urp.shadowDistance = originalMaxShadowDist;
-            urp.cascade2Split = originalCascade2Split;
-            urp.cascade3Split = originalcascade3Split;
-            urp.cascade4Split = originalcascade4Split;
-            urp.cascadeBorder = originalLastBorder;
+            if (settingsIndex == (int)CameraType.FreeCamera)
+            {
+                urp.shadowCascadeCount = originalCascadeCount;
+                urp.shadowDistance = originalMaxShadowDist;
+                urp.cascade2Split = originalCascade2Split;
+                urp.cascade3Split = originalcascade3Split;
+                urp.cascade4Split = originalcascade4Split;
+                urp.cascadeBorder = originalLastBorder;
+                int currentQualityIndex = QualitySettings.GetQualityLevel();
+                Tuple<int, float> lodData = lodSettingsDict[currentQualityIndex];
+                QualitySettings.maximumLODLevel = lodData.Item1;
+                QualitySettings.lodBias = lodData.Item2;
+            }
+            else
+            {
+                urp.shadowDistance = shadowDist;
+                urp.shadowCascadeCount = 1;
+                urp.cascadeBorder = 0;
+                
+                if(ShouldChangeLODSettings())
+                {
+                    QualitySettings.maximumLODLevel = zoomLevel;
+                    QualitySettings.lodBias = 50000;
+                }
+            }
             float nearClip = VirtualCamera.Lens.NearClipPlane;
             float farClip = VirtualCamera.Lens.FarClipPlane; 
             while (time < LerpTime)
@@ -184,15 +191,38 @@ namespace Unity.FantasyKingdom
 
         }
 
+        private bool ShouldChangeLODSettings()
+        {
+            return qualityController.currentQualityLevelName.Contains("Desktop") || qualityController.currentQualityLevelName.Contains("High");
+        }
+
         private void OnDisable()
         {
-            HeightPass.passMaterial = _originalHeightFog;
-            CubePass.passMaterial = _originalCubeFog;
+            CleanUpFog();
             urp.shadowDistance = originalMaxShadowDist;
             urp.cascade2Split = originalCascade2Split;
             urp.cascade3Split = originalcascade3Split;
             urp.cascade4Split = originalcascade4Split;
             urp.cascadeBorder = originalLastBorder;
+            urp.shadowCascadeCount = originalCascadeCount;
+        }
+
+        void CleanUpFog()
+        {
+            var urpAssets = new UniversalRenderPipelineAsset[QualitySettings.names.Length];
+            for (int i = 0; i < QualitySettings.names.Length; i++)
+            {
+                urpAssets[i] = QualitySettings.GetRenderPipelineAssetAt(i) as UniversalRenderPipelineAsset;
+                var renderer = urpAssets[i].GetRenderer(0);
+
+                var property = typeof(ScriptableRenderer).GetProperty("rendererFeatures", BindingFlags.NonPublic | BindingFlags.Instance);
+
+                features = property.GetValue(renderer) as List<ScriptableRendererFeature>;
+                HeightPass = (FullScreenPassRendererFeature)features[0];
+                HeightPass.passMaterial = _originalHeightFog;
+                CubePass = (FullScreenPassRendererFeature)features[1];
+                CubePass.passMaterial = _originalCubeFog;
+            }
         }
     }
 }

@@ -47,14 +47,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcdf9007a9ad17b48806835bcfce4247, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalMovementAxisName: Horizontal
-  verticalMovementAxisName: Vertical
-  horizontalMouseAxisName: Mouse X
-  verticalMouseAxisName: Mouse Y
   rotationMouseButton: 1
   pinchThreshold: 10
   min_rotation_width: 1.5
   min_rotation_angle: 1.2
+  _inputActionAsset: {fileID: -944628639613478452, guid: 57aa1a4c82454616bed26f7b365eb456, type: 3}
 --- !u!114 &3750370462034980711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,6 +64,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d31e32532adf7446b1af9be360ec0d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  forceLodPoint: 0.4
   VirtualCamera: {fileID: 4591445186089540857}
   CameraTarget: {fileID: 2196176368077379906}
   Settings:

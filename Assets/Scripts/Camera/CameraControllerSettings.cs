@@ -82,10 +82,6 @@ namespace Unity.FantasyKingdom
         public float TiltAmount;
         public float CameraNearPlane = 5.0f;
         public float CameraFarPlane = 1500f;
-        public float Split1 = 0.58f;
-        public float Split2 = 0.79f;
-        public float Split3 = 0.9f;
-        public float CascadeBorder = 0.21f;
         public Material HeightFog;
         public Material CubeFog;
     }

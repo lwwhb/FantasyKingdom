@@ -488,6 +488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b8547ecce52a5846be07052644a59d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InputProviderObject: {fileID: 0}
   Panel: {fileID: 8913381063813114548}
   Draws: {fileID: 9105046096719370360}
   Verts: {fileID: 8781442121826173091}

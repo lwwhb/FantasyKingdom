@@ -15,6 +15,9 @@ namespace Unity.FantasyKingdom
 
         public bool DPadNorth();
 
+        public bool CycleQualityUpButton();
+        public bool CycleQualityDownButton();
+
         public bool StatPanelButton { get; }
 
         public bool StatPanelGesture { get; }

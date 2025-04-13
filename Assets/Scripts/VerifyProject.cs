@@ -1,23 +1,23 @@
+#if UNITY_EDITOR
+
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
-#if UNITY_EDITOR
-    using UnityEditor;
-    using UnityEditor.SceneManagement;
-#endif
+using UnityEditor;
+using UnityEditor.SceneManagement;
 
 namespace Unity.FantasyKingdom
 {
+    [InitializeOnLoad]
     public class VerifyProject : ScriptableObject
     {
         [SerializeField] RenderPipelineAsset defaultRPAsset;
         [SerializeField] RenderPipelineAsset[] qualityRPAssets;
         [SerializeField] InputActionAsset inputActionAsset;
         
-#if UNITY_EDITOR
-        [InitializeOnLoadMethod]
-        static void EnsureInitialize()
+        static VerifyProject()
         {
+            EditorSceneManager.sceneOpening -= EditorSceneManagerOnSceneOpening;
             EditorSceneManager.sceneOpening += EditorSceneManagerOnSceneOpening;
         }
 
@@ -37,13 +37,13 @@ namespace Unity.FantasyKingdom
             
             if (InputSystem.actions != inputActionAsset)
             {
-                Debug.Log($"Updating input actions asset.");
-                InputSystem.actions = inputActionAsset;
+                // Debug.Log($"Updating input actions asset.");
+                InputSystem.actions = null;
             }
             
             if (GraphicsSettings.defaultRenderPipeline != defaultRPAsset)
             {
-                Debug.Log($"Updating default renderpipeline asset.");
+                // Debug.Log($"Updating default renderpipeline asset.");
                 GraphicsSettings.defaultRenderPipeline = defaultRPAsset;
             }
 
@@ -58,17 +58,18 @@ namespace Unity.FantasyKingdom
 
                 if (customRenderPipeline.objectReferenceValue != qualityRPAssets[i])
                 {
-                    Debug.Log($"Updating custom renderpipeline asset for quality level {i} {qNames[i]}.");
+                    // Debug.Log($"Updating custom renderpipeline asset for quality level {i} {qNames[i]}.");
                     customRenderPipeline.objectReferenceValue = qualityRPAssets[i];
                     didUpdate = true;
                 }
             }
             if (didUpdate)
             {
-                Debug.Log("Applying quality setting changes.");
+                // Debug.Log("Applying quality setting changes.");
                 so.ApplyModifiedPropertiesWithoutUndo();
             }
         }
-#endif
     }
 }
+
+#endif
